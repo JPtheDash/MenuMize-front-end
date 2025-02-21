@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders - MenuMize</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" id="login-section">
+        <h1>🔒 Admin Login</h1>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <p id="login-error" style="color: red; display: none;">Invalid Credentials</p>
+    </div>
+
+    <div class="container" id="orders-section" style="display: none;">
+        <h1>📦 Incoming Orders</h1>
+        <div id="orders-list"></div>
+    </div>
+
+    <script src="orders.js"></script>
+</body>
+</html>
