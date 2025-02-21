@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    <script>
+        // Get table ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const tableId = urlParams.get("table") || "Unknown";
+        document.body.insertAdjacentHTML("afterbegin", `<p style="font-size: 1.2em; font-weight: bold; color: #ff4081; text-align: center;">📍 Ordering from Table: ${tableId}</p>`);
+    </script>
+
     <div class="container">
         <h1>📜 Menu</h1>
         <div id="menu-list"></div>
