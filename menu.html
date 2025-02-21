@@ -7,49 +7,24 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="header">
-        <img src="assets/logo.png" alt="MenuMize Logo" class="logo">
-        <h2 id="restaurant-name" class="restaurant-name">Restaurant Name</h2>
-        <p class="table-info">📍 Ordering from Table: <span id="table-id">Unknown</span></p>
-    </div>
-
     <div class="container">
-        <div id="menu" class="menu-container">
-            <div class="menu-category">
-                <button class="category-toggle" onclick="toggleCategory('starters')">🥗 Starters</button>
-                <div id="starters-list" class="menu-items"></div>
-            </div>
-
-            <div class="menu-category">
-                <button class="category-toggle" onclick="toggleCategory('lunch')">🍛 Lunch</button>
-                <div id="lunch-list" class="menu-items"></div>
-            </div>
-
-            <div class="menu-category">
-                <button class="category-toggle" onclick="toggleCategory('beverages')">🍹 Beverages</button>
-                <div id="beverages-list" class="menu-items"></div>
-            </div>
+        <h1>🍽️ MenuMize</h1>
+        <h2 id="restaurant-name">Restaurant Name</h2>
+        
+        <div id="menu-list"></div>
+        
+        <div id="plate">
+            <h2>🛒 Your Plate</h2>
+            <ul id="cart-items"></ul>
+            <button class="confirm-btn" onclick="showOrderPopup()">✅ Confirm Order</button>
         </div>
     </div>
 
-    <div id="plate" class="plate-container">
-        <h3>Your Plate 🍽️</h3>
-        <ul id="plate-items"></ul>
-    </div>
-
-    <div id="order-bar" class="order-bar">
-        <span>Total: ₹<span id="total-price">0</span></span>
-        <button class="order-button" onclick="showOrderPopup()">🛒 Place Order</button>
-    </div>
-
-    <div id="order-popup" class="order-popup hidden">
-        <div class="popup-content">
-            <h2>Confirm Your Order</h2>
-            <ul id="order-summary" class="order-summary"></ul>
-            <p>Total: ₹<span id="popup-total-price">0</span></p>
-            <button class="confirm-button" onclick="placeOrder()">✅ Confirm</button>
-            <button class="cancel-button" onclick="closeOrderPopup()">❌ Cancel</button>
-        </div>
+    <div id="order-popup" class="hidden">
+        <h2>Order Summary</h2>
+        <ul id="order-summary"></ul>
+        <button class="confirm-btn" onclick="placeOrder()">🛒 Place Order</button>
+        <button class="confirm-btn" onclick="closeOrderPopup()">❌ Cancel</button>
     </div>
 
     <script src="script.js"></script>
