@@ -8,42 +8,68 @@
 </head>
 <body>
     <div class="container">
-        <h1>🍽️ MenuMize</h1>
+        <h1 class="title">MenuMize</h1>
         <h2 id="restaurant-name">Bhubaneswari Classic</h2>
         
         <div id="menu">
             <div class="menu-category">
-                <h3 onclick="toggleDropdown('starters')">Starters ⬇️</h3>
+                <h3 onclick="toggleDropdown('starters')">Starters</h3>
                 <div id="starters" class="menu-items hidden">
-                    <div class="menu-item"><span>Chicken Pakoda</span> <button onclick="addToCart('Chicken Pakoda', 120)">Add +</button></div>
-                    <div class="menu-item"><span>Lollypop</span> <button onclick="addToCart('Lollypop', 150)">Add +</button></div>
+                    <div class="menu-item">
+                        <span>Chicken Pakoda</span>
+                        <button onclick="addToCart('Chicken Pakoda', 120, this)">Add +<span class="count">0</span></button>
+                    </div>
+                    <div class="menu-item">
+                        <span>Lollypop</span>
+                        <button onclick="addToCart('Lollypop', 150, this)">Add +<span class="count">0</span></button>
+                    </div>
                 </div>
             </div>
             <div class="menu-category">
-                <h3 onclick="toggleDropdown('lunch')">Lunch ⬇️</h3>
+                <h3 onclick="toggleDropdown('lunch')">Lunch</h3>
                 <div id="lunch" class="menu-items hidden">
-                    <div class="menu-item"><span>Veg Thali</span> <button onclick="addToCart('Veg Thali', 200)">Add +</button></div>
-                    <div class="menu-item"><span>Chicken Thali</span> <button onclick="addToCart('Chicken Thali', 250)">Add +</button></div>
+                    <div class="menu-item">
+                        <span>Veg Thali</span>
+                        <button onclick="addToCart('Veg Thali', 200, this)">Add +<span class="count">0</span></button>
+                    </div>
+                    <div class="menu-item">
+                        <span>Chicken Thali</span>
+                        <button onclick="addToCart('Chicken Thali', 250, this)">Add +<span class="count">0</span></button>
+                    </div>
                 </div>
             </div>
             <div class="menu-category">
-                <h3 onclick="toggleDropdown('beverages')">Beverages ⬇️</h3>
+                <h3 onclick="toggleDropdown('beverages')">Beverages</h3>
                 <div id="beverages" class="menu-items hidden">
-                    <div class="menu-item"><span>Cola</span> <button onclick="addToCart('Cola', 50)">Add +</button></div>
-                    <div class="menu-item"><span>Thums Up</span> <button onclick="addToCart('Thums Up', 50)">Add +</button></div>
+                    <div class="menu-item">
+                        <span>Cola</span>
+                        <button onclick="addToCart('Cola', 50, this)">Add +<span class="count">0</span></button>
+                    </div>
+                    <div class="menu-item">
+                        <span>Thums Up</span>
+                        <button onclick="addToCart('Thums Up', 50, this)">Add +<span class="count">0</span></button>
+                    </div>
                 </div>
             </div>
         </div>
         
-        <button class="confirm-btn" onclick="goToYourPlate()">✅ Place Your Order</button>
+        <button class="confirm-btn" onclick="goToYourPlate()">Place Your Order</button>
     </div>
 
     <script>
         let cart = [];
 
-        function addToCart(name, price) {
-            cart.push({ name, price });
-            alert(name + " added to plate!");
+        function addToCart(name, price, button) {
+            let countSpan = button.querySelector(".count");
+            let count = parseInt(countSpan.textContent) + 1;
+            countSpan.textContent = count;
+            
+            let existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity = count;
+            } else {
+                cart.push({ name, price, quantity: count });
+            }
         }
 
         function goToYourPlate() {
