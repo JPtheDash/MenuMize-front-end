@@ -53,7 +53,7 @@
             </div>
         </div>
         
-        <button class="confirm-btn" onclick="goToYourPlate()">Place Your Order</button>
+        <button class="confirm-btn large-btn" onclick="goToYourPlate()">🛒 Place Your Order</button>
     </div>
 
     <script>
@@ -82,5 +82,25 @@
             element.classList.toggle("hidden");
         }
     </script>
+    
+    <style>
+        .large-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 20px;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .large-btn:hover {
+            background-color: #e65c00;
+        }
+    </style>
 </body>
 </html>
