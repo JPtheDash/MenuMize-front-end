@@ -14,23 +14,27 @@
     </div>
 
     <div class="container">
-        <h1 class="menu-title">📜 Our Delicious Menu</h1>
         <div id="menu" class="menu-container">
             <div class="menu-category">
                 <button class="category-toggle" onclick="toggleCategory('starters')">🥗 Starters</button>
-                <div id="starters-list" class="menu-items hidden"></div>
+                <div id="starters-list" class="menu-items"></div>
             </div>
 
             <div class="menu-category">
                 <button class="category-toggle" onclick="toggleCategory('lunch')">🍛 Lunch</button>
-                <div id="lunch-list" class="menu-items hidden"></div>
+                <div id="lunch-list" class="menu-items"></div>
             </div>
 
             <div class="menu-category">
                 <button class="category-toggle" onclick="toggleCategory('beverages')">🍹 Beverages</button>
-                <div id="beverages-list" class="menu-items hidden"></div>
+                <div id="beverages-list" class="menu-items"></div>
             </div>
         </div>
+    </div>
+
+    <div id="plate" class="plate-container">
+        <h3>Your Plate 🍽️</h3>
+        <ul id="plate-items"></ul>
     </div>
 
     <div id="order-bar" class="order-bar">
