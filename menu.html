@@ -7,40 +7,47 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <script>
-        // Get table ID from URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const tableId = urlParams.get("table") || "Unknown";
-        const restaurantName = "Awesome Restaurant"; // Change this dynamically if needed
-
-        document.body.insertAdjacentHTML("afterbegin", `
-            <div class="header">
-                <img src="assets/logo.png" alt="MenuMize Logo" class="logo">
-                <h2>${restaurantName}</h2>
-                <p class="table-info">📍 Ordering from Table: ${tableId}</p>
-            </div>
-        `);
-    </script>
+    <div class="header">
+        <img src="assets/logo.png" alt="MenuMize Logo" class="logo">
+        <h2 id="restaurant-name">Restaurant Name</h2>
+        <p class="table-info">📍 Ordering from Table: <span id="table-id">Unknown</span></p>
+    </div>
 
     <div class="container">
         <h1>📜 Menu</h1>
-        
-        <h2>🥗 Starters</h2>
-        <div id="starters-list" class="menu-category"></div>
+        <div id="menu">
+            <div class="menu-category">
+                <button class="category-toggle" onclick="toggleCategory('starters')">🥗 Starters</button>
+                <div id="starters-list" class="menu-items hidden"></div>
+            </div>
 
-        <h2>🍛 Lunch</h2>
-        <div id="lunch-list" class="menu-category"></div>
+            <div class="menu-category">
+                <button class="category-toggle" onclick="toggleCategory('lunch')">🍛 Lunch</button>
+                <div id="lunch-list" class="menu-items hidden"></div>
+            </div>
 
-        <h2>🍹 Beverages</h2>
-        <div id="beverages-list" class="menu-category"></div>
-
-        <div id="cart">
-            <h2>🛒 Your Order</h2>
-            <ul id="cart-items"></ul>
-            <button onclick="placeOrder()">✅ Place Order</button>
+            <div class="menu-category">
+                <button class="category-toggle" onclick="toggleCategory('beverages')">🍹 Beverages</button>
+                <div id="beverages-list" class="menu-items hidden"></div>
+            </div>
         </div>
     </div>
+
+    <div id="order-bar" class="order-bar">
+        <span>Total: ₹<span id="total-price">0</span></span>
+        <button onclick="showOrderPopup()">🛒 Place Order</button>
+    </div>
+
+    <div id="order-popup" class="order-popup hidden">
+        <div class="popup-content">
+            <h2>Confirm Your Order</h2>
+            <ul id="order-summary"></ul>
+            <p>Total: ₹<span id="popup-total-price">0</span></p>
+            <button onclick="placeOrder()">✅ Confirm</button>
+            <button onclick="closeOrderPopup()">❌ Cancel</button>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
