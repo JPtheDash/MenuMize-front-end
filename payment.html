@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - MenuMize</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Choose Payment Method</h1>
+        <button class="payment-btn" onclick="payByCash()">💵 Pay by Cash</button>
+        <button class="payment-btn" onclick="payByUPI()">📲 Pay by UPI</button>
+    </div>
+
+    <script>
+        function payByCash() {
+            alert("Order placed! Please pay in cash when served.");
+            window.location.href = "thankyou.html";
+        }
+
+        function payByUPI() {
+            alert("Redirecting to UPI payment...");
+            window.location.href = "thankyou.html";
+        }
+    </script>
+    
+    <style>
+        .payment-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .payment-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</body>
+</html>
