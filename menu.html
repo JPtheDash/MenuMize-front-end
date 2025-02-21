@@ -11,7 +11,20 @@
         <h1>🍽️ MenuMize</h1>
         <h2 id="restaurant-name">Restaurant Name</h2>
         
-        <div id="menu-list"></div>
+        <div id="menu">
+            <div class="menu-category">
+                <button class="category-toggle" onclick="toggleCategory('starters')">Starters ⬇️</button>
+                <div id="starters" class="menu-items"></div>
+            </div>
+            <div class="menu-category">
+                <button class="category-toggle" onclick="toggleCategory('lunch')">Lunch ⬇️</button>
+                <div id="lunch" class="menu-items"></div>
+            </div>
+            <div class="menu-category">
+                <button class="category-toggle" onclick="toggleCategory('beverages')">Beverages ⬇️</button>
+                <div id="beverages" class="menu-items"></div>
+            </div>
+        </div>
         
         <div id="plate">
             <h2>🛒 Your Plate</h2>
