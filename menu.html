@@ -9,13 +9,13 @@
 <body>
     <div class="header">
         <img src="assets/logo.png" alt="MenuMize Logo" class="logo">
-        <h2 id="restaurant-name">Restaurant Name</h2>
+        <h2 id="restaurant-name" class="restaurant-name">Restaurant Name</h2>
         <p class="table-info">📍 Ordering from Table: <span id="table-id">Unknown</span></p>
     </div>
 
     <div class="container">
-        <h1>📜 Menu</h1>
-        <div id="menu">
+        <h1 class="menu-title">📜 Our Delicious Menu</h1>
+        <div id="menu" class="menu-container">
             <div class="menu-category">
                 <button class="category-toggle" onclick="toggleCategory('starters')">🥗 Starters</button>
                 <div id="starters-list" class="menu-items hidden"></div>
@@ -35,16 +35,16 @@
 
     <div id="order-bar" class="order-bar">
         <span>Total: ₹<span id="total-price">0</span></span>
-        <button onclick="showOrderPopup()">🛒 Place Order</button>
+        <button class="order-button" onclick="showOrderPopup()">🛒 Place Order</button>
     </div>
 
     <div id="order-popup" class="order-popup hidden">
         <div class="popup-content">
             <h2>Confirm Your Order</h2>
-            <ul id="order-summary"></ul>
+            <ul id="order-summary" class="order-summary"></ul>
             <p>Total: ₹<span id="popup-total-price">0</span></p>
-            <button onclick="placeOrder()">✅ Confirm</button>
-            <button onclick="closeOrderPopup()">❌ Cancel</button>
+            <button class="confirm-button" onclick="placeOrder()">✅ Confirm</button>
+            <button class="cancel-button" onclick="closeOrderPopup()">❌ Cancel</button>
         </div>
     </div>
 
