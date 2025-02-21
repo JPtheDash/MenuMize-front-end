@@ -1,109 +1,140 @@
 body {
-    background: linear-gradient(to right, #ff9966, #ff5e62);
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    color: #fff;
-}
-
-.header {
-    text-align: center;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.2);
-    border-bottom: 2px solid #fff;
-}
-
-.logo {
-    width: 150px;
-}
-
-.restaurant-name {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.menu-container {
-    padding: 20px;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 500px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
 }
 
 .menu-category {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 10px;
-    border-radius: 10px;
+    margin-bottom: 15px;
 }
 
 .category-toggle {
     width: 100%;
-    padding: 10px;
-    background: #ff5e62;
-    color: white;
+    background: #ff9800;
+    color: #fff;
     border: none;
-    font-size: 18px;
-    border-radius: 5px;
+    padding: 10px;
     cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    display: block;
+    text-align: left;
+}
+
+.category-toggle:hover {
+    background: #e68900;
 }
 
 .menu-items {
-    display: none;
     padding: 10px;
-    background: rgba(255, 255, 255, 0.1);
+    background: #f9f9f9;
+    border-radius: 5px;
+    display: none;
 }
 
 .menu-items.show {
     display: block;
 }
 
-.plate-container {
-    background: rgba(0, 0, 0, 0.2);
-    padding: 15px;
-    margin: 10px;
-    border-radius: 10px;
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
 }
 
-.order-bar {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background: #ff5e62;
+.add-btn {
+    background: #4caf50;
     color: white;
-    text-align: center;
-    padding: 15px;
-    font-size: 18px;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.order-popup {
+.add-btn:hover {
+    background: #45a049;
+}
+
+#plate {
+    margin-top: 20px;
+    padding: 15px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#plate h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#order-popup {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: white;
-    color: black;
     padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     display: none;
+    width: 80%;
+    max-width: 400px;
 }
 
-.order-popup.show {
+#order-popup.show {
     display: block;
 }
 
-.confirm-button, .cancel-button {
-    padding: 10px;
-    margin: 10px;
+#order-summary {
+    list-style: none;
+    padding: 0;
+}
+
+#order-summary li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.confirm-btn {
+    background: #ff5722;
+    color: white;
     border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    margin-top: 10px;
 }
 
-.confirm-button {
-    background: green;
-    color: white;
+.confirm-btn:hover {
+    background: #e64a19;
 }
 
-.cancel-button {
-    background: red;
-    color: white;
+.hidden {
+    display: none;
 }
