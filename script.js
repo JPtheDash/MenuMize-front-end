@@ -17,12 +17,12 @@ fetch(`${apiBaseUrl}/menu`)
         Object.keys(categories).forEach(category => {
             menuHtml += `<div class="menu-category">
                             <button class="category-toggle" onclick="toggleCategory('${category}')">${category} ⬇️</button>
-                            <div id="${category}-list" class="menu-items">`;
+                            <div id="${category}-list" class="menu-items hidden">`;
             
             categories[category].forEach(item => {
                 menuHtml += `<div class="menu-item">
                                 <p>${item.name} - ₹${item.price}</p>
-                                <button onclick="addToPlate('${item.name}', ${item.price})">➕ Add</button>
+                                <button class="add-btn" onclick="addToPlate('${item.name}', ${item.price})">➕ Add</button>
                              </div>`;
             });
             
@@ -33,7 +33,7 @@ fetch(`${apiBaseUrl}/menu`)
     });
 
 function toggleCategory(categoryId) {
-    document.getElementById(categoryId + "-list").classList.toggle("show");
+    document.getElementById(categoryId + "-list").classList.toggle("hidden");
 }
 
 let cart = [];
