@@ -9,37 +9,52 @@
 <body>
     <div class="container">
         <h1>🍽️ MenuMize</h1>
-        <h2 id="restaurant-name">Restaurant Name</h2>
+        <h2 id="restaurant-name">Bhubaneswari Classic</h2>
         
         <div id="menu">
             <div class="menu-category">
-                <button class="category-toggle" onclick="toggleCategory('starters')">Starters ⬇️</button>
-                <div id="starters" class="menu-items hidden"></div>
+                <h3 onclick="toggleDropdown('starters')">Starters ⬇️</h3>
+                <div id="starters" class="menu-items hidden">
+                    <div class="menu-item"><span>Chicken Pakoda</span> <button onclick="addToCart('Chicken Pakoda', 120)">Add +</button></div>
+                    <div class="menu-item"><span>Lollypop</span> <button onclick="addToCart('Lollypop', 150)">Add +</button></div>
+                </div>
             </div>
             <div class="menu-category">
-                <button class="category-toggle" onclick="toggleCategory('lunch')">Lunch ⬇️</button>
-                <div id="lunch" class="menu-items hidden"></div>
+                <h3 onclick="toggleDropdown('lunch')">Lunch ⬇️</h3>
+                <div id="lunch" class="menu-items hidden">
+                    <div class="menu-item"><span>Veg Thali</span> <button onclick="addToCart('Veg Thali', 200)">Add +</button></div>
+                    <div class="menu-item"><span>Chicken Thali</span> <button onclick="addToCart('Chicken Thali', 250)">Add +</button></div>
+                </div>
             </div>
             <div class="menu-category">
-                <button class="category-toggle" onclick="toggleCategory('beverages')">Beverages ⬇️</button>
-                <div id="beverages" class="menu-items hidden"></div>
+                <h3 onclick="toggleDropdown('beverages')">Beverages ⬇️</h3>
+                <div id="beverages" class="menu-items hidden">
+                    <div class="menu-item"><span>Cola</span> <button onclick="addToCart('Cola', 50)">Add +</button></div>
+                    <div class="menu-item"><span>Thums Up</span> <button onclick="addToCart('Thums Up', 50)">Add +</button></div>
+                </div>
             </div>
         </div>
         
-        <div id="plate">
-            <h2>🛒 Your Plate</h2>
-            <ul id="cart-items"></ul>
-            <button class="confirm-btn" onclick="showOrderPopup()">✅ Confirm Order</button>
-        </div>
+        <button class="confirm-btn" onclick="goToYourPlate()">✅ Place Your Order</button>
     </div>
 
-    <div id="order-popup" class="hidden">
-        <h2>Order Summary</h2>
-        <ul id="order-summary"></ul>
-        <button class="confirm-btn" onclick="placeOrder()">🛒 Place Order</button>
-        <button class="confirm-btn" onclick="closeOrderPopup()">❌ Cancel</button>
-    </div>
+    <script>
+        let cart = [];
 
-    <script src="script.js"></script>
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            alert(name + " added to plate!");
+        }
+
+        function goToYourPlate() {
+            localStorage.setItem("cart", JSON.stringify(cart));
+            window.location.href = "yourPlate.html";
+        }
+
+        function toggleDropdown(category) {
+            let element = document.getElementById(category);
+            element.classList.toggle("hidden");
+        }
+    </script>
 </body>
 </html>
