@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Plate - MenuMize</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Your Plate</h1>
+        <ul id="order-list"></ul>
+        <h2>Total: ₹<span id="total-price">0</span></h2>
+        <button class="confirm-btn large-btn" onclick="proceedToPayment()">💰 Proceed to Payment</button>
+    </div>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let orderList = document.getElementById("order-list");
+        let totalPrice = 0;
+
+        cart.forEach(item => {
+            let listItem = document.createElement("li");
+            listItem.textContent = `${item.name} x${item.quantity} - ₹${item.price * item.quantity}`;
+            orderList.appendChild(listItem);
+            totalPrice += item.price * item.quantity;
+        });
+        
+        document.getElementById("total-price").textContent = totalPrice;
+
+        function proceedToPayment() {
+            window.location.href = "payment.html";
+        }
+    </script>
+    
+    <style>
+        .large-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .large-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</body>
+</html>
